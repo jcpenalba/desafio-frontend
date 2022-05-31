@@ -1,1 +1,37 @@
-<p>card works!</p>
+<div class="conteiner-flex">
+    <div class="opacity-50 text-center" *ngIf="persons.length==0; else elseIf">
+        <div class="icon">
+            <img src="https://www.optocareer.com/wp-content/themes/optcareer_temp/img/home/icon_2-02.png">
+        </div>
+        <div>
+            <p>Você ainda não realizou</p>
+            <p>nenhuma busca!</p>
+        </div>
+    </div>
+    <ng-template #elseIf>
+        <div class="cards">
+            <h3>Resultado da busca</h3>
+            <div *ngFor="let person of persons; let i = index">
+                <mat-card>
+                    <div>
+                        {{person.name | uppercase}}  {{person.username}}
+                    </div>
+                    <div id="{{'text'+i}}" (click)="ChangeText(i)" data-bs-toggle="collapse" [attr.href]="'#person'+i" role="button" aria-expanded="false" [attr.aria-controls]="'person'+i">
+                        Ver detalhe da ação <mat-icon>expand_more</mat-icon>                      
+                    </div>
+                </mat-card>
+                <mat-card-content>
+                
+                    <div class="collapse" id="{{'person'+i}}">
+                        
+                                <p>{{person.phone}}</p>
+                                <p>{{person.email}}</p>
+                                <p>{{person.website}}</p>
+                                <button (click)="OpenDialog()">VER MAIS</button>
+                    </div>
+
+                </mat-card-content>                
+            </div>
+        </div>
+    </ng-template>
+</div>

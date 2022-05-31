@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { Client } from 'src/app/Models/client/client.module';
+import { DialogAlertComponent } from '../dialog-alert/dialog-alert.component';
 
 @Component({
   selector: 'app-card',
@@ -7,9 +10,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
-  constructor() { }
+  @Input() persons: Client[]=[];
 
+  constructor(public dialog : MatDialog,private renderer : Renderer2) { }
+  
   ngOnInit(): void {
   }
+  
+  OpenDialog() {
+    this.dialog.open(DialogAlertComponent);
+  }
 
+  ChangeText(index:number){
+    const mydiv = document.getElementById('text'+index.toString());
+    if (mydiv != undefined) {
+      let text = "";
+      if (mydiv.ariaExpanded=="true") {
+        text = 'Ocultar detalhe da ação <span class="material-icons">expand_less</span>';
+      }else{
+        text = 'Ver detalhe da ação <span class="material-icons">expand_more</span>';
+      }
+      mydiv.innerHTML=text;
+    }
+  }
 }
