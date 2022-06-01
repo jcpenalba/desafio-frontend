@@ -10,7 +10,7 @@ describe('ClientService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports:[
+      imports: [
         HttpClientTestingModule
       ]
     }); 
@@ -22,7 +22,7 @@ describe('ClientService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('Debe retornar Valores', (done: DoneFn)=> {
+  it('Must return value', (done: DoneFn)=> {
     const mockResult = [
       {
           "id": 1,

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, startWith, switchMap } from 'rxjs/operators';
-import { Client } from 'src/app/Models/client/client.module';
+import { Client } from 'src/app/Models/client/client.interface';
 import { ClientService } from 'src/app/Services/client.service';
 
 @Component({
@@ -27,8 +27,8 @@ export class SearchComponent implements OnInit {
        }) 
     )
    }
-   
-  Filter(val: string): Observable<Client[]> {
+
+   Filter(val: string): Observable<Client[]> {
     return this.service.Search()
      .pipe(
        map(response => response.filter((option) => {              

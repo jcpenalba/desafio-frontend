@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Client } from 'src/app/Models/client/client.module';
+import { Client } from 'src/app/Models/client/client.interface';
 import { DialogAlertComponent } from '../dialog-alert/dialog-alert.component';
 
 @Component({
