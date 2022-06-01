@@ -31,23 +31,4 @@ describe('SearchComponent', () => {
     expect(component).toBeTruthy();
   });
 
-//   it("should search", () => {
-//     const textToSearch = "l";
-//     component.control.setValue(textToSearch);
-//     const result =[
-//                   {
-//                       "id": 1,
-//                       "name": "Leanne Graham",
-//                       "username": "Bret",
-//                       "email": "Sincere@april.biz",
-                      
-//                       "phone": "1-770-736-8031 x56442",
-//                       "website": "hildegard.org"
-//       }
-//   ]
-//     //component.Filter(textToSearch);
-//     component.ShowCard();
-//     let spy = spyOn(component, 'Filter')
-//     expect(spy).toHaveBeenCalled()
-//   } )
-// });
+});

@@ -18,7 +18,7 @@ export class CardComponent implements OnInit {
   }
   
   OpenDialog() {
-    this.dialog.open(DialogAlertComponent);
+    this.dialog.open(DialogAlertComponent, { disableClose: true });
   }
 
   ChangeText(index:number){
