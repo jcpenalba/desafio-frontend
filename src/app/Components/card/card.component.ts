@@ -26,9 +26,9 @@ export class CardComponent implements OnInit {
     if (mydiv != undefined) {
       let text = "";
       if (mydiv.ariaExpanded=="true") {
-        text = 'Ocultar detalhe da ação <span class="material-icons">expand_less</span>';
+        text = '<span>Ocultar detalhe da ação</span><span class="material-icons">expand_less</span>';
       }else{
-        text = 'Ver detalhe da ação <span class="material-icons">expand_more</span>';
+        text = '<span>Ver detalhe da ação</span><span class="material-icons">expand_more</span>';
       }
       mydiv.innerHTML=text;
     }

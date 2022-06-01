@@ -1,6 +1,6 @@
-<div class="conteiner-flex">
+<div class="conteiner-flex mt-5">
     <div class="opacity-50 text-center" *ngIf="persons.length==0; else elseIf">
-        <div class="icon">
+        <div class="icon opacity-50">
             <img src="https://www.optocareer.com/wp-content/themes/optcareer_temp/img/home/icon_2-02.png">
         </div>
         <div>
@@ -9,28 +9,34 @@
         </div>
     </div>
     <ng-template #elseIf>
-        <div class="cards">
-            <h3>Resultado da busca</h3>
+        <div class="w-75 position-relative top-50 start-50 translate-middle">
+            <h3 class="text-start">Resultado da busca</h3>
             <div *ngFor="let person of persons; let i = index">
-                <mat-card>
-                    <div>
-                        {{person.name | uppercase}}  {{person.username}}
-                    </div>
-                    <div id="{{'text'+i}}" (click)="ChangeText(i)" data-bs-toggle="collapse" [attr.href]="'#person'+i" role="button" aria-expanded="false" [attr.aria-controls]="'person'+i">
-                        Ver detalhe da ação <mat-icon>expand_more</mat-icon>                      
+                <mat-card class="mt-3">
+                    <div class="row fs-5">
+                        <div class="col-7 pt-2">
+                            <span class="fw-bold me-2">{{person.name | uppercase}} </span>
+                            <span class="">{{person.username}}</span> 
+                        </div>
+                        <div class="col-5 color-font text-end mb-2" id="{{'text'+i}}" (click)="ChangeText(i)" data-bs-toggle="collapse" [attr.href]="'#person'+i" role="button" aria-expanded="false" [attr.aria-controls]="'person'+i">
+                            <span>Ver detalhe da ação </span><span class="material-icons">expand_more</span>                      
+                        </div>
                     </div>
                 </mat-card>
+                <div class="collapse border p-0 m-0 bg-white" id="{{'person'+i}}">
                 <mat-card-content>
-                
-                    <div class="collapse" id="{{'person'+i}}">
-                        
-                                <p>{{person.phone}}</p>
-                                <p>{{person.email}}</p>
-                                <p>{{person.website}}</p>
-                                <button (click)="OpenDialog()">VER MAIS</button>
-                    </div>
-
-                </mat-card-content>                
+                    <div class="row g-0">
+                        <div class="col-8 mx-3 pt-4">
+                            <p>Telefone: {{person.phone}}</p>
+                            <p>E-mail: {{person.email}}</p>
+                            <p>URL: {{person.website}}</p>
+                        </div>
+                        <div class="col-2 position-relative">
+                            <button class="btn btn-ligth button-modal btn-lg w-100 position-absolute top-50 start-100 translate-middle" (click)="OpenDialog()">VER MAIS</button>
+                        </div>
+                    </div>                
+                </mat-card-content>   
+                </div>             
             </div>
         </div>
     </ng-template>

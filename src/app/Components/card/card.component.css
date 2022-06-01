@@ -3,6 +3,12 @@
     border: solid 0.1em rgba(0,0,0,0.1);
   }
 
-.mat-card-content{
-    border: solid 0.1em rgba(0,0,0,0.1);
+.color-font{
+  color: #ce7fdb;
+}
+
+.button-modal {
+  background-color: rgba(252, 219, 103);
+  color: white;
+  font-weight: bold; 
 }

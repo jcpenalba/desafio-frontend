@@ -13,7 +13,7 @@ import { ClientService } from 'src/app/Services/client.service';
 export class SearchComponent implements OnInit {
   control = new FormControl();
   clients : Client[] = [];
-  filteredOptions: Observable<any[]> | undefined;
+  filteredOptions: Observable<Client[]> | undefined;
    
   constructor(private service: ClientService) {}
 
@@ -28,10 +28,10 @@ export class SearchComponent implements OnInit {
     )
    }
    
-  Filter(val: string): Observable<any> {
+  Filter(val: string): Observable<Client[]> {
     return this.service.Search()
      .pipe(
-       map(response => response.filter((option: { name: string; }) => {              
+       map(response => response.filter((option) => {              
          return option.name.toLowerCase().indexOf(val.trim().toLowerCase()) === 0;
        }))
      )
@@ -41,7 +41,7 @@ export class SearchComponent implements OnInit {
     let control = this.control.value;
     if (control != null && control.trim() != '' ) {
       this.Filter(control).subscribe( value => {
-        this.clients = value;        
+        this.clients = value;  
       });      
     }
   }
